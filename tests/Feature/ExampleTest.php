@@ -18,12 +18,15 @@ it('returns a successful response', function () {
     $feed->shouldReceive('current')->andReturnUsing(function () use (&$feedItems) {
         return current($feedItems);
     });
+
     $feed->shouldReceive('key')->andReturnUsing(function () use (&$feedItems) {
         return key($feedItems);
     });
+
     $feed->shouldReceive('next')->andReturnUsing(function () use (&$feedItems) {
         return next($feedItems);
     });
+
     $feed->shouldReceive('valid')->andReturnUsing(function () use (&$feedItems) {
         return current($feedItems) !== false;
     });
@@ -45,4 +48,4 @@ it('returns a successful response', function () {
                 'title' => 'Hello World',
             ]
             ]);
-})->only();
+});
