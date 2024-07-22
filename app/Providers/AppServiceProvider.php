@@ -4,11 +4,17 @@ namespace App\Providers;
 
 use FeedIo\FeedIo;
 use GuzzleHttp\Client;
+use App\Services\FeedIoReader;
+use App\Contracts\ReaderContract;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public $bindings = [
+        ReaderContract::class => FeedIoReader::class,
+    ];
+
     /**
      * Register any application services.
      */
